@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://github.com/asashiho/dockertext2/blob/master/chap05/onbuild/website.tar
+HostUrl=https://raw.githubusercontent.com/asashiho/dockertext2/master/chap05/onbuild/website.tar
