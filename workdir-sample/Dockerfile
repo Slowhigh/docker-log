@@ -1,8 +1,8 @@
 FROM ubuntu:20.04
 
-ENV DIRPATH /first \
-DIRNAME second
+ENV DIRPATH=/first \
+    DIRNAME=second
 
-WORKDIR $DIRPATH$DIRNAME
+WORKDIR $DIRPATH/$DIRNAME
 
 RUN ["pwd"]
