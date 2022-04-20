@@ -18,7 +18,7 @@ sudo docker run -d -p 5000:5000 --name local-registry registry:latest
 sudo docker run -d --restart=always -p 5000:5000 -v /data/registry:/var/lib/registry/Docker/registry/v2 --name local-registry registry:latest
 ```
 
-<br/>
+<br/><br/>
 
 ### 2. push image to registry (client)
 
@@ -33,13 +33,34 @@ sudo docker push <host ip>:5000/docker-jupyter
 
 <br/>
 
+`Get https://<host ip>:5000/v2/: http: server gave HTTP response to HTTPS client`라는 error가 발생한다면?
+
+<br/>
+
+- `<windows OS>`
+Docker Desktop에서 아래와 같이 `"insecure-registries": ["<host ip>:5000"]`를 추가하고 Docker를 재시작한다.
+![windows OS](./window-OS-Troubleshooting.png)
+
+<br/>
+
+- `<linux OS>`
+`/etc/docker/daemon.json`에 아래 내용을 추가 후 Docker를 재시작한다. (만약 파일이 없다면 생성한다.) <br/>
+```
+{
+    "insecure-registries": ["<host ip>:5000"]
+}
+```
+
+
+<br/><br/>
+
 ### 3. pull image from registry (client)
 private registry에서 docker-jupyter 이미지를 **pull** 한다.
 ```
 sudo docker pull <host ip>:5000/docker-jupyter
 ```
 
-<br/>
+<br/><br/>
 
 ### 4. image ls (client)
 private registry에 저장되어 있는 **이미지 목록을 조회**한다.
