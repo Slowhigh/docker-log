@@ -2,7 +2,7 @@
 FROM jupyter/base-notebook
 
 # Maintainer
-LABEL maintainer "Shiho ASA"
+LABEL maintainer "SomeDay"
 
 # Configure environment
 ENV CONDA_DIR=/opt/conda \
