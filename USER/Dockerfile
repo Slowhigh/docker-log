@@ -1,9 +1,9 @@
 FROM ubuntu:20.04
 
-RUN ["adduser", "asa"]
+RUN ["adduser", "someday"]
 
 RUN ["whoami"]
 
-USER asa
+USER someday
 
 RUN ["whoami"]
