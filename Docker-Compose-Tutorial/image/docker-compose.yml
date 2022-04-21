@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  webserver:
+    image: ubuntu
+
+# services:
+#   webserver:
+#     image: someday/docker:1.0
