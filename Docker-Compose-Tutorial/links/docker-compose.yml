@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  webserver:
+    image: ubuntu
+
+links:
+  - logserver
+  - logserver:log01

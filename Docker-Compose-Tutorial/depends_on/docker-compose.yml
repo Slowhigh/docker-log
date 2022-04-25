@@ -1,0 +1,18 @@
+version "3"
+
+# webserver 컨테이너를 시작하기 전에 db 컨테이너와 redis 컨테이너를 시작한다.
+services:
+  webserver:
+    image: ubuntu
+    depends_on:
+      - db
+      - redis
+  redis:
+    image: redis
+  db:
+    image: postgres
+
+# 여기서 주의할 점은 depends_on은 컨테이너의 시작 순서만 제어할 뿐 컨테이너상의 애플리
+# 케이션이 이용 가능해 질 때까지 기다리고 제어를 하지 않는다는 점입니다. 즉, 의존관계에 있는
+# 데이터베이스 서비스의 준비가 끝날 때까지 기다리는 것은 아니기 때문에 애플리케이션 측에서
+# 이에 대한 대책을 세울 필요가 있습니다.
