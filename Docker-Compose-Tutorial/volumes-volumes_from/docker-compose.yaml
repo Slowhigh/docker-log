@@ -1,0 +1,16 @@
+# 볼륨 지정
+valumes:
+  # 컨테이너의 디렉토리 경로
+  - /var/lib/mysql
+
+  # 호스트의 디렉토리 경로:컨테이너의 디렉토리 경로
+  - cache/:/tmp/cache
+
+# 읽기 전용 볼륨 지정
+volumes:
+  - ~/configs:/etc/configs/:ro
+
+# 다른 컨테이너로부터 모든 볼륨을 마운트할 때는 volumes_from에 컨테이너명을 지정합니다.
+# log라는 이름의 컨테이너로 마운트
+volumes_from:
+  - log
