@@ -85,7 +85,7 @@ $ docker-compose config
 ```
 
 
-## 컨테이너 강제 정지/삭제
+#### 컨테이너 강제 정지/삭제
 ```
 $ docker-compose kill -s SIGINT
 
@@ -102,14 +102,13 @@ $ docker-compose rm
 |SIGSTOP|프로세스 일시 정지|
 지원하는 시그널의 종류는 kill -l 명령으로 확인할 수 있습니다.
 
+#### down 명령은 실행 중인 컨테이너를 정지시키고, Docker 이미지, 네트워크, 데이터 볼륨을 일괄적으로 삭제
+```
+$ docker-compose down
 
+# 모든 이미지 삭제
+$ docker-compose down --rmi all
 
-
-
-
-
-
-
-
-
-
+# 커스텀 태그가 없는 이미지만 삭제, 로컬 이미지만 삭제
+$ docker-compose down --rmi local
+```
