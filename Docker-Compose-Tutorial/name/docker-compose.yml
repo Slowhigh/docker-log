@@ -1,0 +1,7 @@
+version: "3"
+
+name: "projectABC"
+
+services:
+  webserver:
+    build: .
