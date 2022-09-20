@@ -20,6 +20,11 @@ $ docker-compose up webserver
 $ docker-compose up webserver redis
 ```
 
+#### 프로젝트 이름 설정
+```
+$ docker-compose -p ProjectABC up
+```
+
 #### 컨테이너 백그라운드로 실행
 ```
 $ docker-compose up -d
