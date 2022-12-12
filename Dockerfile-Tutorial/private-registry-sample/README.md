@@ -72,6 +72,9 @@ docker pull <host ip>:5000/docker-jupyter
 
 private registry에 저장되어 있는 **이미지 목록을 조회**한다.
 
+```bash
+~$ curl -X GET <host ip>:5000/v2/_catalog
 ```
-curl -X GET <host ip>:5000/v2/_catalog
+```shell
+PS> curl -method get <host ip>:5000/v2/_catalog
 ```
