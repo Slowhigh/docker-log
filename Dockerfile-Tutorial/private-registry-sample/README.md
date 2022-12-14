@@ -15,7 +15,7 @@ docker run -d -p 5000:5000 --name local-registry registry:latest
 #### 추가적인 옵션
 
 - **--restart=always** : container가 다운 되더라도 재시작한다.
-- **-v /data/registry:/var/lib/registry/Docker/registry/v2** : container가 종료 되더라도 이미지 데이터를 보존하기 위해 volume을 mount한다.
+- **-v /data/registry:/var/lib/registry/docker/registry/v2** : container가 종료 되더라도 이미지 데이터를 보존하기 위해 volume을 mount한다.
 
 ```
 docker run -d --restart=always -p 5000:5000 -v /data/registry:/var/lib/registry/Docker/registry/v2 --name local-registry registry:latest
