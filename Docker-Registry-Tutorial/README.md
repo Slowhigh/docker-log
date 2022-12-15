@@ -105,7 +105,7 @@ $ docker run -d -e REGISTRY_HTTP_ADDR=0.0.0.0:5001 -p 5001:5001 --name registry 
 
 
 ```bash
-$ mkdir certs
+# $ mkdir certs
 
 
 # $ openssl genrsa -des3 -out certs/domain.key
@@ -115,14 +115,14 @@ $ mkdir certs
 # $ cat certs/domain.crt
 # 
 # $ docker secret create domain.key certs/domain.key
-# $ docker secret create doamin.crt certs/domain.crt
+# $ docker secret create domain.crt certs/domain.crt
 # $ docker secret ls
 
 
 
 
 # Input: 1234, 1234
-$ openssl genrsa -des3 -out domain.key
+# $ openssl genrsa -des3 -out domain.key
 # Generating RSA private key, 2048 bit long modulus (2 primes)
 # ...................................................................+++++
 # ...............+++++
@@ -131,7 +131,7 @@ $ openssl genrsa -des3 -out domain.key
 # Verifying - Enter pass phrase for domain.key:
 
 # Input: KR, Seoul, Jung-gu, Someday, SW, www.someday.com, sw@someday.com, [Enter], [Enter]
-$ openssl req -new -key domain.key -out domain.csr
+# $ openssl req -new -key domain.key -out domain.csr
 # Enter pass phrase for domain.key:
 # You are about to be asked to enter information that will be incorporated
 # into your certificate request.
@@ -153,16 +153,21 @@ $ openssl req -new -key domain.key -out domain.csr
 # A challenge password []:
 # An optional company name []:
 
-$ cp domain.key domain.key.origin
-$ openssl rsa -in domain.key.origin -out domain.key
+# $ cp domain.key domain.key.origin
+# $ openssl rsa -in domain.key.origin -out domain.key
 
-$ openssl x509 -req -days 3650 -in domain.csr -signkey domain.key -out domain.crt
+# $ openssl x509 -req -days 3650 -in domain.csr -signkey domain.key -out domain.crt
 # Signature ok
 # subject=C = KR, ST = Seoul, L = Jung-gu, O = Someday, OU = SW, CN = www.someday.com, emailAddress = sw@someday.com
 # Getting Private key
 
 
+# 참고: openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /d/tmp/nginx.key -out /d/tmp/nginx.crt -subj "/CN=my-nginx/O=my-nginx"
+$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout domain.key -out domain.crt -subj "/C=KR/ST=Seoul/L=Jung-gu/O=SomeDay/OU=SW/CN=www.someday.com/emailAddress=sw@someday.com"
 
+
+$ docker secret create domain.key domain.key
+$ docker secret create domain.crt domain.crt
 
 
 $ docker node ls
