@@ -1,5 +1,5 @@
 <h1 align="center">
-  <b>Docker Study</b>
+  <b>Docker Log</b>
 </h1>
 
 - [Dockerfile Tutorial](Dockerfile-Tutorial)
